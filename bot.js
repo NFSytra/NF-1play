@@ -1,14 +1,9 @@
-
 const Discord = require("discord.js");
-const bot = new Discord.Client();
+const client = new Discord.Client();
 const jimp = require('jimp');   
 const canvas = require("canvas");
-
-
-
-
-
-
+const fs = require("fs");
+const moment = require("moment");
 
 const sWlc = {}
 const premium = ['389090790984515594']
