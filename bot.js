@@ -11,24 +11,6 @@ const prefix = '+';
 client.on('ready', () => {
 console.log('Logging into discord..');
 console.log(`
-Login successful.
-
------------------
-RoyalDev - Discord Bot
------------------
-${client.user.username}
-
-Connected to:
-${client.guilds.size} servers
-${client.channels.size} channel
-${client.users.size} users
-
-Prefix: ${PREFIX}
------------------
-
-Use this url to bring your bot to a server:
-https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=2146958588585`);
-
 });
 
 client.on('warn', console.warn);
