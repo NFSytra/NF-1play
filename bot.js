@@ -232,25 +232,25 @@ function isYoutube(str) {
     const embed = new Discord.RichEmbed()
      .setColor("RANDOM")
      .addField(`**__أوامر البوت__**`,`
-.    **${prefix}تعال**
+         **${prefix}join**
 	 عشان يدخل البوت الروم
-	 **${prefix}شغل**
-	 امر تشغيل الأغنية , !شغل الرابط او اسم الأعنية
-	 **${prefix}تخطي**
+         **${prefix}leave**
+         خروج البوت من الروم	 
+         **${prefix}play**
+	 امر تشغيل الأغنية , !play الرابط او اسم الأعنية
+	 **${prefix}skip**
 	 تغير الأغنية
-	 **${prefix}وقف**
+	 **${prefix}pause**
 	 ايقاف الأغنية
-	 **${prefix}كمل**
+	 **${prefix}resume**
      مواصلة الأغنية
-	 **${prefix}صوت**
+	 **${prefix}vol**
 	 مستوى الصوت 1-100
-	 **${prefix}اطلع**
-         خروج البوت من الروم
         
-	 prefix = ${prefix}
-	 ping = ${Date.now() - message.createdTimestamp}ms
-	 for help = <@337457211875917834>
-	by : SyTrAA#5843 `)
+	 Prefix = ${prefix}
+	 Ping = ${Date.now() - message.createdTimestamp}ms
+	 For help = <@337457211875917834>
+	By : SyTrAA#5843 `)
 
       message.channel.send({embed});
 	 }
@@ -273,15 +273,6 @@ if (message.content.startsWith(prefix + 'setplay')) {
 if (message.content.startsWith(prefix + 'setstream')) {
   client.user.setGame(argresult, "https://www.twitch.tv/sytra_ayman");
     message.channel.sendMessage(`**${argresult}** :تم تغيير الحالة الى ستريمنج`)
-} else
- 
-if (message.content.startsWith(prefix + 'setwatch')) {
-client.user.setActivity(argresult, {type:'WATCHING'});
-    message.channel.sendMessage(`**:white_check_mark:  : ${argresult}**`)
-} else 
-if (message.content.startsWith(prefix + 'setlisten')) {
-client.user.setActivity(argresult, {type:'LISTENING'});
-    message.channel.sendMessage(`**:white_check_mark:  : ${argresult}**`)
 } else 
 
 if (message.content.startsWith(prefix + 'setname')) {
