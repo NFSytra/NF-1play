@@ -7,10 +7,10 @@ const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
 
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";//لاتغير شيي
-const prefix = '#';
+const prefix = 'm';
 client.on('ready', function() {
 	console.log(`i am ready ${client.user.username}`);
-    client.user.setGame(prefix+'مساعدة');
+    client.user.setGame(prefix+'help');
 });
 /*
 ////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -49,7 +49,7 @@ client.on('message', function(message) {
 	const mess = message.content.toLowerCase();
 	const args = message.content.split(' ').slice(1).join(' ');
 
-	if (mess.startsWith(prefix + 'شغل')) {
+	if (mess.startsWith(prefix + 'play')) {
 		if (!message.member.voiceChannel) return message.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
 		// if user is not insert the URL or song title
 		if (args.length == 0) {
@@ -106,7 +106,7 @@ client.on('message', function(message) {
 			});
 		}
 	}
-	else if (mess.startsWith(prefix + 'تخطي')) {
+	else if (mess.startsWith(prefix + 'skip')) {
 		if (!message.member.voiceChannel) return message.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
 		message.channel.send(':ok:').then(() => {
 			skip_song(message);
@@ -114,7 +114,7 @@ client.on('message', function(message) {
 			if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
 		});
 	}
-	else if (message.content.startsWith(prefix + 'صوت')) {
+	else if (message.content.startsWith(prefix + 'vol')) {
 		if (!message.member.voiceChannel) return message.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
 		// console.log(args)
 		if (args > 100) return message.channel.send('1 - 100 || **__لا أكثر ولا أقل__**')
@@ -122,29 +122,29 @@ client.on('message', function(message) {
 		dispatcher.setVolume(1 * args / 50);
 		message.channel.sendMessage(`**__ ${dispatcher.volume*50}% مستوى الصوت __**`);
 	}
-	else if (mess.startsWith(prefix + 'وقف')) {
+	else if (mess.startsWith(prefix + 'pause')) {
 		if (!message.member.voiceChannel) return message.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
 		message.channel.send(':ok:').then(() => {
 			dispatcher.pause();
 		});
 	}
-	else if (mess.startsWith(prefix + 'كمل')) {
+	else if (mess.startsWith(prefix + 'resume')) {
 		if (!message.member.voiceChannel) return message.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
 			message.channel.send(':ok:').then(() => {
 			dispatcher.resume();
 		});
 	}
-	else if (mess.startsWith(prefix + 'اطلع')) {
+	else if (mess.startsWith(prefix + 'leave')) {
 		if (!message.member.voiceChannel) return message.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
 		message.channel.send(':ok:');
 		var server = server = servers[message.guild.id];
 		if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
 	}
-	else if (mess.startsWith(prefix + 'تعال')) {
+	else if (mess.startsWith(prefix + 'join')) {
 		if (!message.member.voiceChannel) return message.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
 		message.member.voiceChannel.join().then(message.channel.send(':ok:'));
 	}
-	else if (mess.startsWith(prefix + 'شغل')) {
+	else if (mess.startsWith(prefix + 'play')) {
 		if (!message.member.voiceChannel) return message.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
 		if (isPlaying == false) return message.channel.send(':anger: || **__تم التوقيف__**');
 		let playing_now_info = new Discord.RichEmbed()
@@ -228,7 +228,7 @@ function isYoutube(str) {
 	return str.toLowerCase().indexOf('youtube.com') > -1;
 }
  client.on('message', message => {
-     if (message.content === prefix +"مساعدة") {
+     if (message.content === prefix +"help") {
     const embed = new Discord.RichEmbed()
      .setColor("RANDOM")
      .addField(`**__أوامر البوت__**`,`
@@ -245,9 +245,8 @@ function isYoutube(str) {
 	 **${prefix}صوت**
 	 مستوى الصوت 1-100
 	 **${prefix}اطلع**
-	 خروج البوت من الروم
-
-
+         خروج البوت من الروم
+        
 	 prefix = ${prefix}
 	 ping = ${Date.now() - message.createdTimestamp}ms
 	 for help = <@464824355990536193>
@@ -256,5 +255,46 @@ function isYoutube(str) {
       message.channel.send({embed});
 	 }
 	});
+
+
+client.on('message', message => {
+var prefix = "m";
+ 
+  if (!message.content.startsWith(prefix)) return;
+  var args = message.content.split(' ').slice(1);
+  var argresult = args.join(' ');
+  if (message.author.id == '395462979115679755' ) return;
+ 
+if (message.content.startsWith(prefix + 'setplay')) {
+  client.user.setGame(argresult);
+    message.channel.sendMessage(`**${argresult}** : تم تغيير الحالة`)
+} else
+ 
+if (message.content.startsWith(prefix + 'setstream')) {
+  client.user.setGame(argresult, "https://www.twitch.tv/sytra_ayman");
+    message.channel.sendMessage(`**${argresult}** :تم تغيير الحالة الى ستريمنج`)
+} else
+ 
+if (message.content.startsWith(prefix + 'setwatch')) {
+client.user.setActivity(argresult, {type:'WATCHING'});
+    message.channel.sendMessage(`**:white_check_mark:  : ${argresult}**`)
+} else 
+if (message.content.startsWith(prefix + 'setlisten')) {
+client.user.setActivity(argresult, {type:'LISTENING'});
+    message.channel.sendMessage(`**:white_check_mark:  : ${argresult}**`)
+} else 
+
+if (message.content.startsWith(prefix + 'setname')) {
+  client.user.setUsername(argresult).then
+      message.channel.sendMessage(`**${argresult}** : تم تغير الأسم`)
+  return message.reply("**لا تستطيع تغير الأسم الا بعد ساعتين**");
+} else
+
+if (message.content.startsWith(prefix + 'setimg')) {
+  client.user.setAvatar(argresult);
+    message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
+}
+});
+
 
 client.login(process.env.BOT_TOKEN);
