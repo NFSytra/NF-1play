@@ -5,7 +5,6 @@ const request = require('request');
 const fs = require('fs');
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
-
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";//لاتغير شيي
 const prefix = 'm';
 client.on('ready', function() {
@@ -263,12 +262,7 @@ var prefix = "m";
   var args = message.content.split(' ').slice(1);
   var argresult = args.join(' ');
   if (message.author.id == '395462979115679755' ) return;
- 
-if (message.content.startsWith(prefix + 'setplay')) {
-  client.user.setGame(argresult);
-    message.channel.sendMessage(`**${argresult}** : تم تغيير الحالة`)
-} else
- 
+	
 if (message.content.startsWith(prefix + 'setstream')) {
   client.user.setGame(argresult, "https://www.twitch.tv/sytra_ayman");
     message.channel.sendMessage(`**${argresult}** :تم تغيير الحالة الى ستريمنج`)
