@@ -31,9 +31,7 @@
     "sqlite3": "^4.0.0",
     "youtube-info": "^1.2.0",
     "ytdl-core": "^0.20.3"
-     "requires": true,
-  "lockfileVersion": 1,
-  "dependencies": {
+    
     "ajv": {
       "version": "4.11.8",
       "resolved": "https://registry.npmjs.org/ajv/-/ajv-4.11.8.tgz",
