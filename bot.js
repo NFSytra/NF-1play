@@ -249,8 +249,8 @@ function isYoutube(str) {
         
 	 prefix = ${prefix}
 	 ping = ${Date.now() - message.createdTimestamp}ms
-	 for help = <@464824355990536193>
-	by : AmoonxD#9337 `)
+	 for help = <@337457211875917834>
+	by : SyTrAA#5843 `)
 
       message.channel.send({embed});
 	 }
