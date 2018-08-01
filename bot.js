@@ -10,7 +10,6 @@ const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";//لاتغير شي
 const prefix = 'm';
 client.on('ready', function() {
 	console.log(`i am ready ${client.user.username}`);
-    client.user.setGame(prefix+'help');
 });
 /*
 ////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
